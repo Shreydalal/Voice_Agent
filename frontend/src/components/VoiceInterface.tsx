@@ -5,7 +5,7 @@ import { Mic, MicOff, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 interface VoiceInterfaceProps {
-  agentId: string;
+  agentId: "agent_9501k9y7yxxhfwm987wya07y3fvy";
 }
 
 const VoiceInterface = ({ agentId }: VoiceInterfaceProps) => {
