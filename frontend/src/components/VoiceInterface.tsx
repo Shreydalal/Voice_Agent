@@ -86,6 +86,7 @@ const VoiceInterface = ({ agentId }: VoiceInterfaceProps) => {
       });
       
       console.log("Conversation started with ID:", conversationId);
+      setIsLoading(false); // Ensure loading state is reset after success
       
     } catch (error) {
       console.error("Failed to start conversation:", error);
