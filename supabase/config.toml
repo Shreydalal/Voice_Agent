@@ -59,3 +59,6 @@ port = 54321
 
 [functions.elevenlabs-conversation]
 verify_jwt = false
+
+[functions.chat-response]
+verify_jwt = false
