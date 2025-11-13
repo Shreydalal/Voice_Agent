@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Mic, MicOff, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { supabase } from "@/integrations/supabase/client";
 
 interface VoiceInterfaceProps {
   agentId: string;
@@ -60,12 +59,21 @@ const VoiceInterface = ({ agentId }: VoiceInterfaceProps) => {
     
     try {
       // Get signed URL from backend
-      const { data, error } = await supabase.functions.invoke('elevenlabs-conversation', {
-        body: { action: 'get_signed_url', agentId }
+      const response = await fetch('http://localhost:5000/elevenlabs-conversation', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ action: 'get_signed_url', agentId }),
       });
 
-      if (error) throw error;
-      
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.error || 'Failed to connect to backend');
+      }
+
+      const data = await response.json();
+
       if (!data?.signed_url) {
         throw new Error("No signed URL received from backend");
       }
