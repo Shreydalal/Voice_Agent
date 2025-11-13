@@ -1,5 +1,4 @@
 import VoiceInterface from "@/components/VoiceInterface";
-import ChatInterface from "@/components/ChatInterface";
 import SampleQuestions from "@/components/SampleQuestions";
 import { Sparkles } from "lucide-react";
 
@@ -28,18 +27,12 @@ const Index = () => {
 
         {/* Main Content */}
         <div className="space-y-16">
-          {/* Voice and Chat Interface Section */}
-          <section className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
-            {/* Voice Interface */}
-            <div className="w-full">
-              <div className="bg-card/30 backdrop-blur-xl border border-border/50 rounded-3xl p-12 shadow-2xl h-full flex items-center justify-center">
+          {/* Voice Interface Section */}
+          <section className="flex justify-center">
+            <div className="w-full max-w-xl">
+              <div className="bg-card/30 backdrop-blur-xl border border-border/50 rounded-3xl p-12 shadow-2xl">
                 <VoiceInterface agentId={AGENT_ID} />
               </div>
-            </div>
-
-            {/* Chat Interface */}
-            <div className="w-full h-[600px]">
-              <ChatInterface />
             </div>
           </section>
 
