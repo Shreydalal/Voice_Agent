@@ -4,7 +4,7 @@ import { Sparkles } from "lucide-react";
 
 const Index = () => {
   // Replace this with your actual ElevenLabs agent ID
-  const AGENT_ID = "your-agent-id-here";
+  const AGENT_ID = "agent_9501k9y7yxxhfwm987wya07y3fvy";
 
   return (
     <div className="min-h-screen bg-gradient-background">
