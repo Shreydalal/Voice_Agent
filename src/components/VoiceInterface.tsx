@@ -66,11 +66,18 @@ const VoiceInterface = ({ agentId }: VoiceInterfaceProps) => {
 
       if (error) throw error;
       
-      const url = data.signed_url;
-      setSignedUrl(url);
+      if (!data?.signed_url) {
+        throw new Error("No signed URL received from backend");
+      }
+      
+      setSignedUrl(data.signed_url);
 
-      // Start the conversation
-      await conversation.startSession({ url });
+      // Start the conversation with the signed URL
+      const conversationId = await conversation.startSession({
+        signedUrl: data.signed_url
+      });
+      
+      console.log("Conversation started with ID:", conversationId);
       
     } catch (error) {
       console.error("Failed to start conversation:", error);
