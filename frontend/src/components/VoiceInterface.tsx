@@ -59,7 +59,7 @@ const VoiceInterface = ({ agentId }: VoiceInterfaceProps) => {
     
     try {
       // Get signed URL from backend
-      const response = await fetch('https://voice-agent-0j9r.onrender.com/elevenlabs-conversation', {
+      const response = await fetch('https://voice-agent-1-1046.onrender.com/elevenlabs-conversation', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
